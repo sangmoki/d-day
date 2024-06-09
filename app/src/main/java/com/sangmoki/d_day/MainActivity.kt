@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
 //                    endDate = "${year}년 ${month + 1}월 ${dayOfMonth}일"
                     endDate = year.toString() + (month + 1).toString() + dayOfMonth.toString()
 
-                    findViewById<TextView>(R.id.dayText).setText(endDate.toInt() - startDate.toInt())
+                    dayText.setText("우리가 사랑한 지 " + (endDate.toInt() - startDate.toInt() + 1).toString() + "일 째")
                 }
             }, year, month, day)
 
