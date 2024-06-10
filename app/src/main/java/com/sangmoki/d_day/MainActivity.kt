@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import org.w3c.dom.Text
 import java.util.Calendar
 import java.util.GregorianCalendar
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +34,10 @@ class MainActivity : AppCompatActivity() {
         // 시작일 종료일 객체 생성
         var startDate = ""
         var endDate = ""
-        
+
+        val calendar_start = Calendar.getInstance()
+        val calendar_end = Calendar.getInstance()
+
         // 시작일 버튼 클릭 이벤트
         startBtn.setOnClickListener {
             
@@ -47,6 +51,8 @@ class MainActivity : AppCompatActivity() {
 
 //                    startDate = "${year}년 ${month + 1}월 ${dayOfMonth}일"
                     startDate = year.toString() + (month + 1).toString() + dayOfMonth.toString()
+
+                    calendar_start.set(year, month + 1, dayOfMonth)
                 }
             }, year, month, day)
 
@@ -66,7 +72,12 @@ class MainActivity : AppCompatActivity() {
 //                    endDate = "${year}년 ${month + 1}월 ${dayOfMonth}일"
                     endDate = year.toString() + (month + 1).toString() + dayOfMonth.toString()
 
-                    dayText.setText("우리가 사랑한 지 " + (endDate.toInt() - startDate.toInt() + 1).toString() + "일 째")
+                    calendar_end.set(year, month + 1, dayOfMonth)
+
+                    val finalDT = TimeUnit.MILLISECONDS.toDays(calendar_end.timeInMillis - calendar_start.timeInMillis)
+
+                    dayText.setText("우리가 사랑한 지 " + (finalDT + 1) + "일 째")
+
                 }
             }, year, month, day)
 
