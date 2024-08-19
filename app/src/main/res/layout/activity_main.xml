@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/radious"
-        android:text="시작날짜"
+        android:text="시작일"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/radious"
-        android:text="종료날짜"
+        android:text="종료일"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
