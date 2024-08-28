@@ -74,6 +74,7 @@ class MainActivity : AppCompatActivity() {
 
                     calendar_end.set(year, month + 1, dayOfMonth)
 
+                    calendar_start.set(year, month + 1, dayOfMonth)
                     val finalDT = TimeUnit.MILLISECONDS.toDays(calendar_end.timeInMillis - calendar_start.timeInMillis)
 
                     dayText.setText("현재까지 " + (finalDT + 1) + "일 째")
